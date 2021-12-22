@@ -18,9 +18,19 @@
 #  index_products_on_category_id  (category_id)
 #
 
-class Product < ApplicationRecord
-  update_index('products') { self }
+FactoryBot.define do
+  factory :product do
+    name { Faker::Company.name }
+    price { Faker::Commerce.price }
+    brand
+    category
 
-  belongs_to :brand
-  belongs_to :category
+    data do
+      {}.tap do |data|
+        self.category.template.each_key do |character|
+          data[character] = Faker::App.name
+        end
+      end
+    end
+  end
 end

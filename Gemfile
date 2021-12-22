@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+gem 'rails', "~> 7"
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
@@ -16,19 +16,22 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 gem 'bootsnap'
 gem 'slim'
-gem 'dotenv'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'faker'
+  gem 'simplecov'
+  gem 'annotate'
+  gem 'pry'
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
-  gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
+  gem 'web-console'
+  gem 'rack-mini-profiler'
+  gem 'listen'
   gem 'spring'
 end
 

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_211635) do
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,14 +30,15 @@ ActiveRecord::Schema.define(version: 2021_12_12_211635) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.decimal "price", precision: 10, scale: 2, default: "0.0"
-    t.bigint "categories_id"
-    t.bigint "brands_id"
+    t.bigint "category_id"
+    t.bigint "brand_id"
     t.json "data"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["brands_id"], name: "index_products_on_brands_id"
-    t.index ["categories_id"], name: "index_products_on_categories_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
 end

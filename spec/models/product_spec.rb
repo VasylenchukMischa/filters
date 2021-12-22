@@ -18,9 +18,10 @@
 #  index_products_on_category_id  (category_id)
 #
 
-class Product < ApplicationRecord
-  update_index('products') { self }
+require 'rails_helper'
 
-  belongs_to :brand
-  belongs_to :category
+RSpec.describe Product, type: :model do
+  it 'has valid factory' do
+    expect(build(:product)).to be_valid
+  end
 end

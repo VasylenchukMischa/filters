@@ -8,16 +8,17 @@ class AddProductModel < ActiveRecord::Migration[6.1]
     end
 
     create_table :brands do |t|
-      t.name
+      t.string :name
 
       t.timestamps
     end
 
     create_table :products, force: :cascade do |t|
       t.string :name
+      t.text :description
       t.decimal :price, precision: 10, scale: 2, default: BigDecimal(0)
-      t.references :categories
-      t.references :brands
+      t.references :category
+      t.references :brand
       t.json :data
 
       t.timestamps
