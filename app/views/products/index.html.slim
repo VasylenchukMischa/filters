@@ -1,0 +1,9 @@
+= link_to 'New', new_product_path, class: 'btn btn-primary my-3'
+table.table
+  - @products.each do |product|
+    tr
+      td= product.name
+      td= product.description
+      td= product.price
+      td= link_to product_path(product) do
+          i.fas.fa-eye
