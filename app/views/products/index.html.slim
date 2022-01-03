@@ -1,9 +1,17 @@
 = link_to 'New', new_product_path, class: 'btn btn-primary my-3'
 table.table
+  tr 
+    th Name
+    th Price
+    th
   - @products.each do |product|
     tr
       td= product.name
-      td= product.description
       td= product.price
-      td= link_to product_path(product) do
+      td
+        = link_to product_path(product), class: 'text-dark mx-3' do
           i.fas.fa-eye
+        = link_to edit_product_path(product), class: 'text-dark mx-3' do
+          i.fas.fa-pen
+        = link_to product_path(product), class: 'text-dark mx-3', method: :destroy do
+          i.fas.fa-trash

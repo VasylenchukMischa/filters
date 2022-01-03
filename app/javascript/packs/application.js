@@ -8,7 +8,8 @@ import "../stylesheets/application.scss";
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
-import '@fortawesome/fontawesome-free/js/brands';
+import "trix";
+import "@rails/actiontext";
 
 Rails.start();
 Turbolinks.start();

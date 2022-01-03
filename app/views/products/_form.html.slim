@@ -1,6 +1,6 @@
 .row
-  = simple_form_for @product do |f|
+  = simple_form_for product do |f|
     = f.input :name
-    = f.input :description
+    = f.input :description, as: :rich_text_area
     = f.input :price
     = f.submit "Submit", class: 'btn btn-success my-2'

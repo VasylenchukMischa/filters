@@ -18,6 +18,7 @@ gem 'bootsnap'
 gem 'slim'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'simple_form'
+gem "anycable-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

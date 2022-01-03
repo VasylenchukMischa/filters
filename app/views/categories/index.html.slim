@@ -1,0 +1,12 @@
+= link_to 'New', new_category_path, class: 'btn btn-primary my-3'
+table.table
+  - @categories.each do |category|
+    tr
+      td= category.name
+      td
+        = link_to category_path(category), class: 'text-dark mx-3' do
+          i.fas.fa-eye
+        = link_to edit_category_path(category), class: 'text-dark mx-3' do
+          i.fas.fa-pen
+        = link_to category_path(category), class: 'text-dark mx-3', method: :destroy do
+          i.fas.fa-trash

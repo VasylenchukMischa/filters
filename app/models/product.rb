@@ -20,7 +20,8 @@
 
 class Product < ApplicationRecord
   update_index('products') { self }
+  has_rich_text :description
 
-  belongs_to :brand
-  belongs_to :category
+  belongs_to :brand, optional: true
+  belongs_to :category, optional: true
 end

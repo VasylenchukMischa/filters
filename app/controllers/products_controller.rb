@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = resource
     @product.destroy
-    redirect_to products_params
+    redirect_to products_path
   end
 
   private
@@ -52,6 +52,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:user).permit(:name, :description, :price, :data)
+    params.require(:product).permit(:name, :description, :price, :data)
   end
 end
