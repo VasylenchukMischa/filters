@@ -1,0 +1,15 @@
+= link_to 'New', new_brand_path, class: 'btn btn-primary my-3'
+table.table
+  tr 
+    th Name
+    th
+  - @brands.each do |brand|
+    tr
+      td= brand.name
+      td
+        = link_to brand_path(brand), class: 'text-dark mx-3' do
+          i.fas.fa-eye
+        = link_to edit_brand_path(brand), class: 'text-dark mx-3' do
+          i.fas.fa-pen
+        = link_to brand_path(brand), class: 'text-dark mx-3', method: :destroy do
+          i.fas.fa-trash

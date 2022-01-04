@@ -1,0 +1,15 @@
+.row
+  = simple_form_for(category, data: {controller: "template", nested_form_wrapper_selector_value: '.nested-form-wrapper'}) do |f|
+    = f.input :name
+
+    h5 Template fields
+
+    template data-template-target="template"
+      = simple_fields_for :template do |template_field|
+        = render "categories/template", f: template_field
+
+    div data-template-target="target"
+
+    button type="button" data-action="template#add" class="btn btn-success d-block my-2 float-right" Add
+
+    = f.submit "Submit", class: "btn btn-primary mb-2"

@@ -10,5 +10,10 @@
 #
 
 class Category < ApplicationRecord
+  STRING = "string".freeze
+  INTEGER = "integer".freeze
+
+  DATATYPES = [STRING, INTEGER]
+
   has_many :products
 end

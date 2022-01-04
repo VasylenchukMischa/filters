@@ -1,0 +1,9 @@
+.nested-form-wrapper data-new-record="true" id="NEW_RECORD"
+  .form-group
+    .row
+      = f.input :field, input_html: {id: "field_NEW_RECORD", name: "field[name_NEW_RECORD]"}, wrapper_html: { class: 'col-6'}
+      = f.input :type, as: :select, collection: Category::DATATYPES, include_blank: false, wrapper_html: { class: 'col-6'}
+
+  button type="button" data-action="template#remove" class="btn btn-danger my-2" Remove 
+
+  = f.hidden_field :_destroy
