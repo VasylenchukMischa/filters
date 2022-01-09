@@ -1,4 +1,13 @@
 h3 Edit product
-= render "products/form", product: @product
+.row
+  = simple_form_for @product do |f|
+    = f.input :name
+    = f.input :description, as: :rich_text_area
+    = f.input :price
+    - if @product.data.present?
+      - @product.data.each do |name, value|
+        = simple_fields_for :data do |data|
+          = data.input name.underscore, input_html: { value: value }
+    = f.submit "Submit", class: 'btn btn-success my-2'
 
 = link_to "Back", product_path(@product), class: 'btn btn-secondary'

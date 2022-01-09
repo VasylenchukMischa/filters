@@ -1,5 +1,5 @@
 .row
-  = simple_form_for(category, data: {controller: "template", nested_form_wrapper_selector_value: '.nested-form-wrapper'}) do |f|
+  = simple_form_for(category, data: {controller: "template", template_wrapper_selector_value: '.template-wrapper', template_form_template_value: category.template}) do |f|
     = f.input :name
 
     h5 Template fields

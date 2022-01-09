@@ -1,4 +1,8 @@
-= link_to 'New Product', new_product_path, class: 'btn btn-primary my-3'
+.row
+  h5 Select category to create product
+  - @categories.each do |category|
+    .col-2 
+      = link_to category.name, new_product_path(category_id: category.id), class: 'btn btn-info'
 table.table
   tr 
     th Name
@@ -13,5 +17,5 @@ table.table
           i.fas.fa-eye
         = link_to edit_product_path(product), class: 'text-dark mx-3' do
           i.fas.fa-pen
-        = link_to product_path(product), class: 'text-dark mx-3', method: :destroy do
+        = link_to product_path(product), class: 'text-dark mx-3', method: :delete do
           i.fas.fa-trash

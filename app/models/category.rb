@@ -11,9 +11,11 @@
 
 class Category < ApplicationRecord
   STRING = "string".freeze
-  INTEGER = "integer".freeze
+  NUMBER = "number".freeze
 
-  DATATYPES = [STRING, INTEGER]
+  DATATYPES = [STRING, NUMBER]
 
   has_many :products
+
+  validates :name, presence: true
 end

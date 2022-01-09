@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = collection
+    @categories = Category.all
   end
 
   def show
@@ -9,10 +10,11 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @category = Category.find(params[:category_id])
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = Product.new(product_params.merge(data: params[:data].permit!))
 
     if @product.save
       redirect_to @product
@@ -52,6 +54,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :data)
+    params.require(:product).permit(:name, :description, :price)
   end
 end

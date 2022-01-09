@@ -24,4 +24,6 @@ class Product < ApplicationRecord
 
   belongs_to :brand, optional: true
   belongs_to :category, optional: true
+
+  validates :price, numericality: { greater_than_or_equal_to: 0.0 }
 end

@@ -1,4 +1,13 @@
 h3 New product
-= render "products/form", product: @product
+.row
+  = simple_form_for @product do |f|
+    = f.input :name
+    = f.input :description, as: :rich_text_area
+    = f.input :price
+    - if @category.template.present?
+      - @category.template.each do |name, type|
+        = simple_fields_for :data do |data|
+          = data.input name.underscore, as: type
+    = f.submit "Submit", class: 'btn btn-success my-2'
 
 = link_to "Back", products_path, class: 'btn btn-secondary'

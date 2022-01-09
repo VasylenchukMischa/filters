@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.new(category_params.merge!(template: params[:template].permit!.to_h.except("_destroy").values.map { |e| e.values }.to_h.except("")))
 
     if @category.save
       redirect_to @category
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
   def update
     @category = resource
 
-    if @product.update(category_params)
+    if @category.update(category_params.merge!(template: params[:template].permit!.to_h.except("_destroy").values.map { |e| e.values }.to_h.except("")))
       redirect_to @category
     else
       render :new
@@ -52,6 +52,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :template)
+    params.require(:category).permit(:name)
   end
 end
